@@ -1,0 +1,21 @@
+-Ensure you have Visual Studio Code Build Tools installed prior to installing pyaudio
+-pip3 install SpeechRecognition
+-pip3 install pyaudio
+	Wheel for pyaudio, if pip install fails:
+	Example:	pip install C:\Users\jacob\Downloads\PyAudio-0.2.11-cp38-cp38-win32.whl
+	Resource:	https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio
+-pip install pyttsx3
+	if pypiwin32 not installed with pyttsx3:
+	pip install pypiwin32
+-pip install pyperclip
+-pip3 install keyboard
+
+
+
+NOTE:
+
+"
+If the user clicks into the black console window, the cursor changes to a filled white rectangle, and the app hangs at the next Console.Write statement, until another click is made.
+It is a generic feature of the Console window when its "QuickEdit Mode" is enabled.
+In order to disable that feature, you should uncheck the "QuickEdit Mode" option of your app's console window at run-time.
+"
