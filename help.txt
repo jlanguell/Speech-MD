@@ -13,6 +13,7 @@
 
 
 NOTE:
+If your app is having trouble running continuously in the terminal, try this potential fix: 
 
 "
 If the user clicks into the black console window, the cursor changes to a filled white rectangle, and the app hangs at the next Console.Write statement, until another click is made.
