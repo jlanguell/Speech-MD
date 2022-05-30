@@ -1,7 +1,11 @@
-Potentially Useful Resources:
+# Potentially Useful Resources:
 
+Basic Google Recognition -> Python Implementation  
 https://www.instructables.com/Speech-Recognition-Using-Google-Speech-API-and-Pyt/
+
+PyAudio Wheels  
 https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio
-https://stackoverflow.com/questions/52283840/i-cant-install-pyaudio-on-windows-how-to-solve-error-microsoft-visual-c-14
+
+Speech Recognition Module Docs.  
 https://github.com/Uberi/speech_recognition/blob/master/reference/library-reference.rst
 

@@ -46,7 +46,7 @@ def engine_translate(device, file, box, status):
             recog = r.recognize_google(audio, language='en-US')
 
             # Toggle between SpeechMD Writing Data/Listening for pause/resume commands
-            if recog == 'system pause':
+            if recog == 'system command pause':
                 engine.say("Speech to em dee has been paused.")
                 engine.say("Please press 'r' to resume.")
                 print("Speech-MD has been PAUSED")
