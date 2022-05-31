@@ -1,4 +1,4 @@
-# Listens For and Handles Audio Input, then Translates it & Passes it to Markdown
+# Listens For and Handles Audio Input, then Translates it & Passes it to data_write.py
 
 # Imports
 import speech_recognition as sr
@@ -8,27 +8,27 @@ from data_write import *
 
 # Variables
 engine = pyttsx3.init()
+r = sr.Recognizer()
+
+# Engine Speech Rate/Volume Variables
 engine.setProperty('rate', 200)
 engine.setProperty('volume', 0.9)
-r = sr.Recognizer()
 
 
 def engine_translate(device, file, box, status):
 
-    # status = None
     try:
         # Designates device & audio gathering params to use
         speech = sr.Microphone(device_index=device, sample_rate=20000)
 
     except AttributeError:
-
-        print("Please install the correct pyaudio wheel for your project. Link in references.txt.")
+        print("Please install the correct pyaudio wheel for your project. Link in 'README.md'.")
         sys.exit()
 
     with speech as source:
 
         # Dynamically determine ambience/speech
-        #r.adjust_for_ambient_noise(source, duration=1)
+        # r.adjust_for_ambient_noise(source, duration=1)
         r.dynamic_energy_threshold = False
 
         # Seconds before an API request is tossed due to no response
@@ -40,9 +40,8 @@ def engine_translate(device, file, box, status):
         try:
             # Variable, when used, begins listening to selected source
             audio = r.listen(source, timeout=3)
-            ''', phrase_time_limit=3)'''
 
-            # Variable to store/make text data translated from listen() source -> API request -> API response
+            # Variable to store text data translated from r.listen() source -> API request -> API response
             recog = r.recognize_google(audio, language='en-US')
 
             # Toggle between SpeechMD Writing Data/Listening for pause/resume commands
@@ -51,12 +50,15 @@ def engine_translate(device, file, box, status):
                 engine.say("Please press 'r' to resume.")
                 print("Speech-MD has been PAUSED")
                 status = 0
+
                 # Ensures engine finishes processing callbacks/commands
                 engine.runAndWait()
 
             # Write data function call
             if status != 0:
                 print("You said: " + recog)
+
+                # Uncomment below to have engine repeat each thing you say back to you
                 # engine.say("You said: " + recog)
                 write(file, recog, box)
 
@@ -67,24 +69,29 @@ def engine_translate(device, file, box, status):
                 if resume.lower() == 'r':
                     engine.say("Speech to em dee has been resumed.")
                     print("Speech-MD has been RESUMED")
-                    # Ensures engine finishes processing callbacks/commands
+
+                    # Ensures engine finishes processing callbacks/commands before moving on
                     engine.runAndWait()
                     status = 1
 
 
-        # Google Speech Recognition Errors
+        # Google Speech Recognition Error Handling :
+
+        # Unknown Audio Error Handling
         except sr.UnknownValueError:
             engine.say("Google Speech could not understand the audio")
             engine.runAndWait()
             pass
 
+        # Problem Connecting/Internet Error Handling
         except sr.RequestError as e:
             engine.say("There was an issue requesting results from Google Speech; {0}".format(e))
             engine.runAndWait()
             pass
+
+        # Translation Response Timeout Error Handling
         except sr.WaitTimeoutError:
             pass
 
-        # Recursively call function to actively run the application and maintain status code
-        # engine_translate(device, file, box, status)
+        # Returns to main.py to start a new request
         return

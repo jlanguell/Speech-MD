@@ -67,9 +67,17 @@ If your app is having trouble running continuously and hanging in the terminal, 
 >> **Right-click the head of the terminal and uncheck the "QuickEdit Mode" option of your app's console window in preferences & defaults at run-time**
 
 
-## Features:  
+## Features & Usage:  
 
 The app is extremely customizable for your own needs. 
+
+RUN the app by navigating to /Speech-MD/speech-md/ and executing the main.py file:  
+
+```bash
+cd ./Speech-MD/speech-md/
+python main.py
+```  
+
 
 Upon running the app, it will:  
 

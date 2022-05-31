@@ -81,4 +81,4 @@ def write(file, recog, box):
 If you have any additional questions or any constructive criticism please email me at the link below.
 Additionally, shoot me an email if you would like to be part of the github repository contributors list.
   
-> jacoblanguell@gmail.com
+> xxxxxxxxxxxxxxx@gmail.com
