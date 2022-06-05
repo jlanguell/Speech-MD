@@ -11,20 +11,22 @@ today = date.today()
 
 
 # Prompts user to pick between a new or existing file
-def choose_new_or_existing(box, filetype):
-    while filetype != 'e' and filetype != 'n':
+def choose_new_or_existing(box, fileType):
+    while fileType != 'e' and fileType != 'n':
         print("Please decide if you wish to write to an existing file or create a new one.")
         print("To choose an existing file, type 'e'")
         print("To choose a new file, type 'n'")
-        filetype = input("Input: ").lower()
+        fileType = input("Input: ").lower()
 
     # User chose to use existing file
-    if filetype == 'e':
+    if fileType == 'e':
+        print("You have chosen to use an existing file.")
         file = get_file()
         return file
 
     # User chose to create new file
     else:
+        print("You have chosen to create a new file for box '{box_name}'.".format(box_name=box))
         file = create_file(box)
         return file
 

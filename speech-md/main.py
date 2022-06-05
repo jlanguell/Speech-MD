@@ -30,7 +30,7 @@ def main():
     fileType = None
     if args.Existing:
         fileType = "e"
-    elif args.New:
+    if args.New:
         fileType = "n"
     file = choose_new_or_existing(box, fileType)
 

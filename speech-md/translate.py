@@ -39,7 +39,7 @@ def engine_translate(device, file, box, status):
 
         try:
             # Variable, when used, begins listening to selected source
-            audio = r.listen(source, timeout=3)
+            audio = r.listen(source)
 
             # Variable to store text data translated from r.listen() source -> API request -> API response
             recog = r.recognize_google(audio, language='en-US')
