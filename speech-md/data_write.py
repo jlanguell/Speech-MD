@@ -101,8 +101,8 @@ def write(file, recog, box):
                 f.write(recog.capitalize() + ".\n")
 
         # Any non-command text is appended to end of working file
-            else:
-                f.write(recog.capitalize() + ".\n")
+        else:
+            f.write(recog.capitalize() + " ")
 
     # Close the write function for current processing speech-text request
     f.close()
