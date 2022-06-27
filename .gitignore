@@ -4,5 +4,7 @@
 build
 dist
 __pycache__
+speech-md/__pycache__/
 *.egg-info
 _build
+.idea
